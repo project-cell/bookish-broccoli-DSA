@@ -8,39 +8,6 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-// class Solution {
-// public:
-//     bool isPalindrome(ListNode* head) {
-//         ListNode * slow = head;
-//         ListNode *fast = head->next;
-
-//         // to find the middlle element in the linked list
-//         while( slow->val != NULL && fast->val != NULL ){
-//             slow = head->next;
-//             fast= head->next->next;
-//         } 
-
-//         // reversal of second half of the linked list eg 12 21 // 12 12
-//         ListNode *prev= NULL;
-//         ListNode *curr=slow->next;
-//         while (curr->next != NULL){
-//             ListNode *temp = curr->next;
-//             //reverse the pointer
-//             curr->next=prev;
-//             // shifting the pointerrs
-//             prev = curr;
-//             curr =temp;
-//         }
-//         while(prev!=NULL){
-//             if(head->val != prev->val){
-//             return 0;
-//             }
-//             head=head->next;
-//             prev= prev->next;
-//         }
-//         return 0;
-//     }
-// };
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
