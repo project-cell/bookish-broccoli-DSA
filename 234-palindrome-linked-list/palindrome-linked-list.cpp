@@ -45,30 +45,30 @@ class Solution {
 public:
     bool isPalindrome(ListNode* head) {
         // Find the middle of the linked list using two pointers
-        // slow moves one step, fast moves two steps
-        ListNode* slowPtr = head;
-        ListNode* fastPtr = head->next;
+       
+        ListNode* slow = head;
+        ListNode* fast = head->next;
       
-        while (fastPtr != nullptr && fastPtr->next != nullptr) {
-            slowPtr = slowPtr->next;
-            fastPtr = fastPtr->next->next;
+        while (fast != NULL && fast->next != NULL) {
+            slow = slow->next;
+            fast = fast->next->next;
         }
       
         // Reverse the second half of the linked list
         // slowPtr->next points to the start of second half
-        ListNode* prev = nullptr;
-        ListNode* curr = slowPtr->next;
+        ListNode* prev = NULL;
+        ListNode* curr = slow->next;
       
-        while (curr != nullptr) {
-            ListNode* nextTemp = curr->next;  // Store next node
+        while (curr != NULL) {
+            ListNode* Temp = curr->next;  // Store next node
             curr->next = prev;                 // Reverse the link
             prev = curr;                        // Move prev forward
-            curr = nextTemp;                    // Move curr forward
+            curr = Temp;                    // Move curr forward
         }
       
         // Compare the first half and reversed second half
         // prev now points to the head of reversed second half
-        while (prev != nullptr) {
+        while (prev != NULL) {
             if (prev->val != head->val) {
                 return false;  // Values don't match, not a palindrome
             }
