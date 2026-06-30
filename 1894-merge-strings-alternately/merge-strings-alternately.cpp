@@ -2,16 +2,21 @@ class Solution {
 public:
     string mergeAlternately(string word1, string word2) {
         string ans = "";
-        int i = 0;
+        int i = 0, j = 0;
 
-        while (i < word1.size() && i < word2.size()) {
-            ans += word1[i];
-            ans += word2[i];
-            i++;
+        while (i < word1.length() && j < word2.length()) {
+            ans += word1[i++];
+            ans += word2[j++];
         }
 
-        ans += word1.substr(i);
-        ans += word2.substr(i);
+        // Append remaining characters
+        while (i < word1.length()) {
+            ans += word1[i++];
+        }
+
+        while (j < word2.length()) {
+            ans += word2[j++];
+        }
 
         return ans;
     }
